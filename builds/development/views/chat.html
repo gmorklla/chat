@@ -1,0 +1,26 @@
+<div class="meetings cf">
+
+	<h1>Escribe tu mensaje</h1>
+	<form action="" ng-submit="plusBtn()" class="formgroup addmeeting cf" name="myform" novalidate>
+		<div class="inputwrapper">
+			<input type="text" name="meetingname" placeholder="Escribe un mensaje"
+				ng-model="nuevoMensaje" ng-required="true">
+		</div>
+		<button type="submit" class="btn"
+			ng-disabled="myform.$invalid">+</button>
+	</form>
+
+	<div class="search cf">
+		<h2>Buscar mensajes</h2>
+		<input type="text" ng-model="query" placeholder="Buscar mensajes">
+	</div>
+
+	<h2>Mensajes</h2>
+	<div class="meeting" ng-repeat="mensaje in mensajes | orderBy:'-fecha':reverse | filter: query">
+		<div class="text">
+			<div class="mensajeNombre">{{mensaje.nombre}}:</div>
+			<div class="mensajeTexto">{{mensaje.mensaje}}</div>
+		</div>
+		<div class="mensajeFecha">{{ mensaje.fecha | date: "d MMM, h:mm a" }}</div>
+	</div> <!-- Lista de mensajes -->
+</div> <!-- mensajes cf -->

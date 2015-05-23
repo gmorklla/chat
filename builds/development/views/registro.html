@@ -1,0 +1,40 @@
+<section class="registro">
+	<form action="" name="myform" ng-submit="registro()" novalidate>
+		<h1>Regístrate</h1>
+		<p>Para usar las características de la página</p>
+
+		<p class="error formerror" ng-show="mensaje">{{ mensaje }}</p>
+
+		<input type="nombre" name="nombre" placeholder="Nombre" autofocus
+			ng-model="user.nombre" ng-required="true">
+
+		<p class="error validationerror"
+			ng-show="myform.nombre.$invalid && myform.nombre.$touched">
+			Tu nombre es obligatorio.</p>
+
+		<input type="apellido" name="apellido" placeholder="Apellido"
+			ng-model="user.apellido" ng-required="true">
+
+		<p class="error validationerror"
+			ng-show="myform.apellido.$invalid && myform.apellido.$touched">
+			Tu apellido es obligatorio.</p>
+
+		<input type="email" name="email" placeholder="Email"
+			ng-model="user.email" ng-required="true">
+
+		<p class="error validationerror"
+			ng-show="myform.email.$invalid && myform.email.$touched">
+			Por favor escribe un email válido.</p>
+
+		<input type="password" name="password" placeholder="Contraseña min 8 caracteres"
+			ng-model="user.password" ng-required="true" ng-minlength="8">
+		
+		<p class="error validationerror"
+			ng-show="myform.password.$invalid && myform.password.$touched">
+			Por favor, escribe una contraseña válida.</p>
+
+		<button ng-disabled="myform.$invalid" type="submit" class="btn">Registrar</button>
+
+		<p>o <a href="#/login">inicia sesión</a></p>
+	</form>
+</section>
